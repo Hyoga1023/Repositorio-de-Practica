@@ -1,0 +1,347 @@
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.rock-salt-regular {
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.spicy-rice-regular {
+  font-family: "Spicy Rice", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.tektur-regular {
+  font-family: "Tektur", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+.indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+p {
+  font-family: "Tektur", sans-serif;
+  font-size: 20px;
+}
+header {
+  display: flex;
+  padding: 30px;
+  gap: 10px;
+}
+.header_container {
+  display: flex;
+  border: solid 2.5px #000;
+  padding: 20px;
+}
+.header_izquierdo {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+.header_derecho {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+.header_centro {
+  background-color: #f0f0f0;
+  display: flex;
+  font-size: 30px;
+  flex: 4;
+  font-family: "Indie Flower", sans-serif;
+  font-size: 10rem;
+  color: #000;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s ease, color 0.2s ease; 
+}
+.header_centro:hover {
+  background-color: #000; 
+  color: #fff; 
+}
+/*-----------------------------------------------------------------------------------------------*/
+/* Estilos para el efecto de texto rodante */
+.gsap_container {
+  position: relative;
+  width: 100%;
+  min-height: 150px; 
+  height: auto; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+}
+
+.rolling-text {
+  position: absolute;
+  white-space: nowrap;
+  font-family: "Indie Flower", cursive;
+  font-size: 5rem; 
+  font-weight: bold;
+  will-change: transform;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  line-height: 1.5; 
+}
+
+.rolling-text span {
+  display: inline-block;
+  padding: 0 10px; 
+  will-change: transform;
+  transition: color 0.3s ease;
+}
+
+
+.rolling-text span:hover {
+  color: #ff9900;
+}
+
+@media (max-width: 768px) {
+  .rolling-text {
+      font-size: 2rem; 
+  }
+}
+/*--------------------------------------------------------------------------*/
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+}
+.section_container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border: solid 2.5px #000;
+  padding: 20px;
+  gap: 20px;
+}
+.section_centro h2 {
+  font-family: "Indie Flower", sans-serif;
+  font-size: 70px;
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+}
+.parrafo_con_foto_principal {
+  display: flex;
+  gap: 20px;
+}
+.parrafos_principal {
+  display: flex;
+  margin-top: 50px;
+  flex: 1;
+  flex-direction: column;
+}
+.imagen_principal {
+  width: 100%;
+  flex: 1;
+  height: auto;
+  object-fit: cover;
+}
+.gsap_container {
+  width: 98%;
+  flex: 1;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  gap: 50px;
+}
+.bloque_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Indie Flower", cursive;
+  font-size: 25px;
+  border: solid 2.5px #000;
+  padding: 20px;
+  gap: 30px;
+}
+.container_texto_bloque_2 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 50px;
+}
+.container_texto_bloque_2 h2 {
+  font-family: "Indie Flower", cursive;
+  font-size: 50px;
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+}
+.texto_bloque_2 {
+  display: flex;
+}
+.img_bloque_2 {
+  flex: 1;
+  width: auto;
+  height: 700px;
+}
+.p_botones_button_2 {
+  font-family: "Indie Flower", cursive;
+  font-size: 25px;
+  background-color: #000;
+  color: #fff;
+  border: solid 2.5px #fff;
+  padding: 10px;
+  margin: 20px 0;
+}
+/*----------------------------------------------------------------------------------*/
+/* Estilos para la animación del bloque 3 */
+.bloque_3 {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.animated-sections {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.animated-sections section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  visibility: hidden; 
+}
+.outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.first .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("./img/Modelo1.jpg");
+}
+
+.second .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("./img/Modelo2.jpg");
+}
+
+.third .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("./img/Modelo3.jpg");
+}
+
+.fourth .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("./img/Modelo4.jpg");
+}
+
+.fifth .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url("./img/Modelo5.jpg");
+}
+
+.section-heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  z-index: 10;
+  font-family: "Indie Flower", cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Clase para el efecto de clip en el texto */
+.clip-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+/*--------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  .header_izquierdo {
+    order: 1;
+  }
+  .header_centro {
+    order: 2;
+    padding: auto;
+  }
+  .header_centro h1 {
+    font-size: 5rem;
+  }
+  .header_derecho {
+    order: 3;
+  }
+  .section_container {
+    flex-direction: column;
+  }
+  .boton_container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .boton_izquierdo,
+  .boton_central,
+  .boton_derecho {
+    font-size: 30px;
+  }
+}
