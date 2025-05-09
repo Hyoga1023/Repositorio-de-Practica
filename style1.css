@@ -219,6 +219,17 @@ main {
   padding: 10px;
   margin: 20px 0;
 }
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+footer img {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
 /*----------------------------------------------------------------------------------*/
 /* Estilos para la animación del bloque 3 */
 .bloque_3 {

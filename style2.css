@@ -1,0 +1,58 @@
+body{
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    gap: 5px;
+}
+header .izquierdo{
+    display: flex;
+    background-color: #000;
+    align-items: center;
+    color: #f0f0f0;
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+}
+header .centro{
+    background-color: #f0f0f0;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    flex: 2;
+    padding: 10px;
+    border: solid 2.5px #000;
+}
+header .centro button{
+    font-family: "Indie Flower", cursive;
+    font-size: 0.5rem;
+    background-color: #000;
+    color: #f0f0f0;
+    border-radius: 15px;
+    padding: 7px 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    transform: scale(2);
+    transition: all 0.3s ease;
+}
+
+header .centro button:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    transform: scale(2.2);
+}
+header .derecho{
+    display: flex;
+    background-color: #000;
+    align-items: center;
+    color: #f0f0f0;
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+}
