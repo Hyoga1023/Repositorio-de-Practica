@@ -59,9 +59,9 @@ header {
 }
 .header_derecho button {
   font-family: "Indie Flower", cursive;
-  font-size: 0.7rem;
+  font-size: 1.6rem;
   background-color: #000;
-  color: #fff;
+  color: #f0f0f0;
   border-radius: 15px;
   padding: 7px 10px;
   cursor: pointer;
@@ -69,7 +69,7 @@ header {
   transition: all 0.3s ease;
 }
 .header_derecho button:hover {
-  background-color: #fff;
+  background-color: #f0f0f0;
   color: #000;
   transform: scale(2.2);
 }
@@ -88,7 +88,7 @@ header {
 }
 .header_centro:hover {
   background-color: #000; 
-  color: #fff; 
+  color: #f0f0f0; 
 }
 /*-----------------------------------------------------------------------------------------------*/
 /* Estilos para el efecto de texto rodante */
@@ -110,7 +110,7 @@ header {
   font-size: 5rem; 
   font-weight: bold;
   will-change: transform;
-  color: #ffffff;
+  color: #f0f0f0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
   line-height: 1.5; 
 }
@@ -214,8 +214,8 @@ main {
   font-family: "Indie Flower", cursive;
   font-size: 25px;
   background-color: #000;
-  color: #fff;
-  border: solid 2.5px #fff;
+  color: #f0f0f0;
+  border: solid 2.5px #f0f0f0;
   padding: 10px;
   margin: 20px 0;
 }
@@ -319,7 +319,7 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3rem;
-  color: white;
+  color: #f0f0f0;
   text-align: center;
   z-index: 10;
   font-family: "Indie Flower", cursive;
