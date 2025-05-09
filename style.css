@@ -55,6 +55,23 @@ header {
   display: flex;
   flex: 1;
   justify-content: center;
+  align-items: center;
+}
+.header_derecho button {
+  font-family: "Indie Flower", cursive;
+  font-size: 0.7rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 15px;
+  padding: 7px 10px;
+  cursor: pointer;
+  transform: scale(2);
+  transition: all 0.3s ease;
+}
+.header_derecho button:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(2.2);
 }
 .header_centro {
   background-color: #f0f0f0;
