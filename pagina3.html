@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scramble Hover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Reddit Mono', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 🌌 Fondo animado de estrellas */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; 
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(white 1px, transparent 1px);
+      background-size: 3px 3px;
+      opacity: 0.05;
+      animation: stars 120s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes stars {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-50%, -50%); }
+    }
+
+    a.scramble {
+      font-size: 2.5rem;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    a.scramble:hover {
+      color: #0ff;
+    }
+  </style>
+</head>
+<body>
+  <a class="scramble" data-value="Perfil de Cesar">Perfil de Cesar</a>
+
+  <script>
+    const letters = "アカサタナハマヤラワABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    document.querySelectorAll(".scramble").forEach((element) => {
+      element.addEventListener("mouseover", () => {
+        let iteration = 0;
+        const originalText = element.dataset.value;
+
+        const interval = setInterval(() => {
+          element.innerText = originalText
+            .split("")
+            .map((letter, index) => {
+              if (index < iteration) {
+                return originalText[index];
+              }
+              return letters[Math.floor(Math.random() * letters.length)];
+            })
+            .join("");
+
+          if (iteration >= originalText.length) {
+            clearInterval(interval);
+          }
+
+          iteration += 1 / 3;
+        }, 30);
+      });
+    });
+  </script>
+</body>
+</html>

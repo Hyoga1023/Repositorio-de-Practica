@@ -1,22 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./img/charlando.png">
-    <link rel="stylesheet" href="style2.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="./img/charlando.png" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <title>Mapa con Leaflet</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header.header,
+    footer {
+      background-color: #000307;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    header .centro a button {
+      padding: 8px 16px;
+      background-color: #fff;
+      border: none;
+      border-radius: 4px;
+      color: #000307;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header .centro a button:hover {
+      background-color: #000307;
+      color: white;
+      box-shadow: 0 0 10px #000307;
+    }
+    main {
+      flex-grow: 1;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    main h1 {
+      margin: 0 0 10px 0;
+      text-align: center;
+      color: #333;
+    }
+    #map {
+      flex-grow: 1;
+      min-height: 500px;
+      height: calc(100vh - 200px);
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      z-index: 1;
+    }
+    footer {
+      margin-top: auto;
+    }
+    @media (max-width: 600px) {
+      header.header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+      main {
+        padding: 10px;
+      }
+      #map {
+        min-height: 400px;
+        height: calc(100vh - 250px);
+      }
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header izquierdo">prueba</div>
-        <div class="header centro">
-            <a href="./index.html"><button>Vuelve al Home</button></a>
-        </div>
-        <div class="header derecho">prueba</div>
-    </header>
-    <main></main>
-    <footer></footer>
-    
+  <header class="header">
+    <div class="izquierdo">Prueba</div>
+    <div class="centro">
+      <a href="./index.html"><button>Vuelve al Home</button></a>
+    </div>
+    <div class="derecho">Prueba</div>
+  </header>
+  <main>
+    <h1>Destino del Viaje</h1>
+    <div id="map"></div>
+  </main>
+  <footer>
+    &copy; 2025 Cesar Martinez - 
+  </footer>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script>
+    // Esperar a que el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', function() {
+      try {
+        const lat = 11.092519412453044;
+        const lon = -74.21869662138386;
+        const zoomLevel = 14;
+        
+        // Inicializar el mapa
+        const map = L.map('map').setView([lat, lon], zoomLevel);
+        
+        // Añadir capa de tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+        
+        // Añadir marcador
+        const marker = L.marker([lat, lon]).addTo(map);
+        marker.bindPopup("<b>¡Hola, Gabrielle Luciana!</b><br>Bienvenida al Decameron Galeón Santa Marta.").openPopup();
+        
+        // Forzar el redimensionamiento del mapa después de un pequeño delay
+        setTimeout(function() {
+          map.invalidateSize();
+        }, 100);
+        
+        // También redimensionar cuando la ventana cambie de tamaño
+        window.addEventListener('resize', function() {
+          map.invalidateSize();
+        });
+        
+      } catch (error) {
+        console.error('Error al inicializar el mapa:', error);
+        document.getElementById('map').innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">Error al cargar el mapa. Por favor, recarga la página.</div>';
+      }
+    });
+  </script>
 </body>
 </html>
