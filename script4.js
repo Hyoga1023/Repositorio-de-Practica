@@ -1,4 +1,4 @@
-// Configuración inicial
+
 const app = new PIXI.Application({
   width: window.innerWidth,
   height: window.innerHeight,
@@ -75,8 +75,8 @@ void main() {
         ) * scanIntensity;
         vec4 distortedColor = texture2D(uSampler, uv + distortion);
         finalColor = mix(finalColor, distortedColor.rgb, scanIntensity * 0.3);
-        finalColor += vec3(1.0, 0.0, 0.0) * patterns * 0.6; // Rojo
-        finalColor += vec3(0.8, 0.0, 0.0) * patterns * edges * 0.4; // Rojo más oscuro
+        finalColor += vec3(0.7, 0.3, 1.0) * patterns * 0.6; // Lila brillante
+        finalColor += vec3(0.5, 0.2, 0.8) * patterns * edges * 0.4; // Lila oscuro
     }
 
     // LÍNEA PRINCIPAL DEL ESCÁNER
@@ -84,7 +84,7 @@ void main() {
         float lineIntensity = (0.008 - distToScan) / 0.008;
         float pulse = sin(uTime * 15.0 + uv.x * 20.0) * 0.3 + 0.7;
         float mainLine = lineIntensity * pulse * (brightness + 0.1);
-        finalColor += vec3(1.0, 0.0, 0.0) * mainLine * 0.8 * smoothstep(0.0, 0.2, brightness) * scanVisibility; // Rojo
+        finalColor += vec3(0.7, 0.3, 1.0) * mainLine * 0.8 * smoothstep(0.0, 0.2, brightness) * scanVisibility; // Lila principal
     }
 
     // LÍNEAS SECUNDARIAS
@@ -95,14 +95,14 @@ void main() {
             float secIntensity = (0.003 - secDist) / 0.003;
             float variation = sin(uv.x * 40.0 + i * 2.0) * 0.5 + 0.5;
             secIntensity *= variation * (edges + 0.3);
-            finalColor += vec3(1.0, 0.0, 0.0) * secIntensity * (0.4 / i) * smoothstep(0.0, 0.2, brightness) * scanVisibility; // Rojo
+            finalColor += vec3(0.7, 0.3, 1.0) * secIntensity * (0.4 / i) * smoothstep(0.0, 0.2, brightness) * scanVisibility; // Lila secundarias
         }
     }
 
     // RESPLANDOR
     if (scanVisibility > 0.0) {
         float glow = exp(-distToScan * 8.0) * 0.15 * (brightness + 0.2);
-        finalColor += vec3(1.0, 0.0, 0.0) * glow * smoothstep(0.0, 0.2, brightness) * scanVisibility; // Rojo
+        finalColor += vec3(0.7, 0.3, 1.0) * glow * smoothstep(0.0, 0.2, brightness) * scanVisibility; // Resplandor lila
     }
 
     // INTERFERENCIA
@@ -110,12 +110,13 @@ void main() {
         float interference = noise(uv * 100.0 + uTime * 0.5);
         interference *= edges * (brightness + 0.3);
         if (interference > 0.8) {
-            finalColor += vec3(1.0, 0.0, 0.0) * 0.3 * scanVisibility; // Rojo
+            finalColor += vec3(0.7, 0.3, 1.0) * 0.3 * scanVisibility; // Interferencia lila
         }
     }
 
     gl_FragColor = vec4(finalColor, 1.0);
 }
+
         `;
 
 // Variables de control
