@@ -1,53 +1,54 @@
- * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            overflow: hidden;
-            font-family: 'Courier New', monospace;
-        }
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Courier New", monospace;
+}
 
-        canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
-        .loading {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #00ccff;
-            font-size: 1.5rem;
-            text-shadow: 0 0 10px #00ccff;
-            z-index: 100;
-        }
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ccff;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px #00ccff;
+  z-index: 100;
+}
 
-        .controls {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            color: #00ccff;
-            font-size: 1rem;
-            text-shadow: 0 0 5px #00ccff;
-            z-index: 100;
-        }
+.controls {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  color: #00ccff;
+  font-size: 1rem;
+  text-shadow: 0 0 5px #00ccff;
+  z-index: 100;
+}
 
-        .controls div {
-            margin-bottom: 0.5rem;
-        }
+.controls div {
+  margin-bottom: 0.5rem;
+}
 
-        @media (max-width: 768px) {
-            .loading {
-                font-size: 1rem;
-            }
-            .controls {
-                font-size: 0.8rem;
-            }
-        }
+@media (max-width: 768px) {
+  .loading {
+    font-size: 1rem;
+  }
+  .controls {
+    font-size: 0.8rem;
+  }
+}
