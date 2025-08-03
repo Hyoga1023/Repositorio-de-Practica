@@ -58,7 +58,7 @@ const fragmentShader = `
                             cos(uv.x * 40.0 + uTime) * 0.002
                         ) * scanIntensity;
                         finalColor = mix(finalColor, texture2D(uSampler, uv + distortion).rgb, 0.25);
-                        finalColor += vec3(1.0, 0.0, 0.0) * pattern * (edges * 0.8 + 0.2) * scanVisibility;
+                        finalColor += vec3(1.0, 0.5, 0.0) * pattern * (edges * 0.8 + 0.2) * scanVisibility;
                     }
 
                     // Colores sugeridos para el escáner:
@@ -72,7 +72,7 @@ const fragmentShader = `
                     // Línea principal del escáner
                     if (distToScan < 0.006 && scanVisibility > 0.0) {
                         float lineIntensity = (0.006 - distToScan) / 0.006;
-                        finalColor += vec3(1.0, 0.0, 0.0) * lineIntensity * (brightness + 0.3) * scanVisibility;
+                        finalColor += vec3(1.0, 0.5, 0.0) * lineIntensity * (brightness + 0.3) * scanVisibility;
                     }
 
                     // Líneas secundarias
@@ -81,14 +81,14 @@ const fragmentShader = `
                         float secDist = abs(distToScan - offset);
                         if (secDist < 0.004 && scanVisibility > 0.0) {
                             float secIntensity = (0.004 - secDist) / 0.004;
-                            finalColor += vec3(1.0, 0.0, 0.0) * secIntensity * (0.3 / i) * scanVisibility;
+                            finalColor += vec3(1.0, 0.5, 0.0) * secIntensity * (0.3 / i) * scanVisibility;
                         }
                     }
 
                     // Resplandor
                     if (scanVisibility > 0.0) {
                         float glow = exp(-distToScan * 12.0) * 0.12 * (brightness + 0.3);
-                        finalColor += vec3(1.0, 0.0, 0.0) * glow * scanVisibility;
+                        finalColor += vec3(1.0, 0.5, 0.0) * glow * scanVisibility;
                     }
                 }
 
@@ -137,10 +137,10 @@ async function initScanEffect() {
     console.log("Intentando cargar imágenes...");
     const assets = await PIXI.Assets.load([
       "img/Rostro_a_color2.png",
-      "img/Rostro_en_grises2.png",
+      "img/Rostro_a_grises2.png",
     ]);
     const colorTexture = assets["img/Rostro_a_color2.png"];
-    const depthTexture = assets["img/Rostro_en_grises2.png"];
+    const depthTexture = assets["img/Rostro_a_grises2.png"];
 
     const sprite = new PIXI.Sprite(colorTexture);
     sprite.width = app.screen.width;
