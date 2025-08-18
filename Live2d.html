@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mascota Live2D</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #9c9898;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mi waifu Live2D</h1>
+
+  <label for="modelSelect">Selecciona un modelo:</label>
+  <select id="modelSelect">
+    <option value="./models/chitose/chitose.model.json">Chitose</option>
+    <option value="./models/haruto/haruto.model.json">Haruto</option>
+    <option value="./models/hibiki/hibiki.model.json">Hibiki</option>
+    <option value="./models/hijiki/hijiki.model.json">Hijiki</option>
+    <option value="./models/izumi/izumi.model.json">Izumi</option>
+    <option value="./models/koharu/koharu.model.json">Koharu</option>
+    <option value="./models/miku/miku.model.json">Miku</option>
+    <option value="./models/nico/nico.model.json">Nico</option>
+    <option value="./models/nietzche/nietzche.model.json">Nietzche</option>
+    <option value="./models/ni-j/ni-j.model.json">Ni-j</option>
+    <option value="./models/nipsilon/nipsilon.model.json">Nipsilon</option>
+    <option value="./models/nito/nito.model.json">Nito</option>
+    <option value="./models/shizuku/shizuku.model.json">Shizuku</option>
+    <option value="./models/tororo/tororo.model.json">Tororo</option>
+    <option value="./models/tsumiki/tsumiki.model.json">Tsumiki</option>
+    <option value="./models/unitychan/unitychan.model.json">Unitychan</option>
+    <option value="./models/wanko/wanko.model.json">Wank</option>
+    <option value="./models/z16/z16.model.json">Z16</option>
+  </select>
+
+  <!-- Motor Live2D -->
+  <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
+  <script>
+    function loadModel(jsonPath) {
+      // Eliminar canvas existente
+      const canvas = document.querySelector("canvas.live2d-widget-canvas");
+      if (canvas) {
+        canvas.remove();
+      }
+
+      // Eliminar instancia previa de Live2D (truco sucio pero funciona 😏)
+      if (window.L2Dwidget) {
+        delete window.L2Dwidget;
+      }
+      // Recargar librería Live2DWidget
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js";
+      script.onload = () => {
+        L2Dwidget.init({
+          model: { jsonPath },
+          display: { position: "right", width: 250, height: 400 },
+          mobile: { show: true, scale: 0.5 },
+          react: { opacityDefault: 0.9, opacityOnHover: 1 }
+        });
+        console.log("✅ Modelo cargado:", jsonPath);
+      };
+      document.body.appendChild(script);
+    }
+
+    // Cargar inicial
+    loadModel("./models/chitose/chitose.model.json");
+
+    // Cambiar con el select
+    document.getElementById("modelSelect").addEventListener("change", (e) => {
+      loadModel(e.target.value);
+    });
+  </script>
+</body>
+</html>
