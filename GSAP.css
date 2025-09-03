@@ -1,0 +1,39 @@
+#inspiracion {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+}
+
+#svg-forms {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vmin;
+    height: 80vmin;
+}
+.placeholder-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: sans-serif;
+    line-height: 1.6;
+    border-top: 1px solid #333;
+}
+
+.placeholder-section h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
