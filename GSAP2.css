@@ -1,0 +1,47 @@
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative; /* Importante para el posicionamiento de los elementos hijos */
+}
+
+h1, h2, h3 {
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Paleta de colores */
+.panel-intro { background: #000; }
+.panel-image { background: #111; }
+.panel-text { background: #222; }
+.panel-end { background: #000; color: #888; }
+
+/* Imagen: estado inicial controlado por JS */
+.panel-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Texto: estado inicial controlado por JS */
+.panel-text h2 {
+    max-width: 90%;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    color: #fff;
+}
